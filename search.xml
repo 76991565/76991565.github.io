@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title><![CDATA[linux下删除目录及其子目录下某种类型文件]]></title>
+      <url>http://yoursite.com/2016/09/20/linux%E4%B8%8B%E5%88%A0%E9%99%A4%E7%9B%AE%E5%BD%95%E5%8F%8A%E5%85%B6%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%9F%90%E7%A7%8D%E7%B1%BB%E5%9E%8B%E6%96%87%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>Linux下，如果想要删除目录及其子目录下某种类型文件，比如说所有的txt文件，则可以使用下面的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find . -name &quot;*.txt&quot; -type f -print -exec rm -rf &#123;&#125; \;</div></pre></td></tr></table></figure></p>
+<p>. :表示当前目录<br>-print 表示将查询结果打印到屏幕上<br>-exec 后可再接其他的命令来处理查找到的结果，上式中，{}表示”由find命令查找到的结果“，如上所示，find所查找到的结果放置到{}位置，-exec一直到”\;“是关键字，表示find额外命令的开始（-exec）到结束（\;），这中间的就是find命令的额外命令，上式中就是 rm -rf</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[vim多行注释和取消注释]]></title>
+      <url>http://yoursite.com/2016/09/20/vim%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A%E5%92%8C%E5%8F%96%E6%B6%88%E6%B3%A8%E9%87%8A/</url>
+      <content type="html"><![CDATA[<p>多行注释：</p>
+<ol>
+<li>进入命令行模式，按ctrl + v进入 visual block模式，然后按j, 或者k选中多行，把需要注释的行标记起来</li>
+<li>按大写字母I，再插入注释符，例如//</li>
+<li>按esc键就会全部注释了</li>
+</ol>
+<p>取消多行注释：</p>
+<ol>
+<li>进入命令行模式，按ctrl + v进入 visual block模式，按字母l横向选中列的个数，例如 // 需要选中2列</li>
+<li>按字母j，或者k选中注释符号</li>
+<li>按d键就可全部取消注释</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[使用ssh-keygen和ssh-copy-id三步实现SSH无密码登录]]></title>
       <url>http://yoursite.com/2016/09/14/%E4%BD%BF%E7%94%A8ssh-keygen%E5%92%8Cssh-copy-id%E4%B8%89%E6%AD%A5%E5%AE%9E%E7%8E%B0SSH%E6%97%A0%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95/</url>
       <content type="html"><![CDATA[<p>ssh-keygen  产生公钥与私钥对.<br>ssh-copy-id 将本机的公钥复制到远程机器的authorized_keys文件中，ssh-copy-id也能让你有到远程机器的home, ~./ssh , 和 ~/.ssh/authorized_keys的权利</p>
@@ -20,21 +46,6 @@
       <content type="html"><![CDATA[<p>如果我们的站点是独立IP的服务器，被别人恶意域名解析到我们的IP地址后，就能通过人家的域名访问网站了，以此可以提高别人的网站的收录情况和pr值等搜索引擎权重，从而也降低了自己的网站的权重和影响力。那我们该怎么办，杜绝这些恶意的解析。</p>
 <p>如需要禁止通过IP访问，可以通过修改nginx的配置文件，一般为nginx.conf，部分nginx的站点<br>配置是在nginx.conf的同级目录vhost中的第一个配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">  listen 80 default;</div><div class="line">  rewrite ^(.*) http://域名;</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
 <p>注意，修改nginx配置后，需要使用service nginx restart重启以便参数生效。</p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>http://yoursite.com/2016/09/12/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 ]]></content>
     </entry>
     
